@@ -1,0 +1,1210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Solreign Software & Technology</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/css/splide.min.css">
+  <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vanilla-tilt@1.7.0/dist/vanilla-tilt.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/js/splide.min.js"></script>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap');
+    
+    :root {
+      --primary: #6366f1;
+      --primary-dark: #4f46e5;
+      --secondary: #f59e0b;
+      --dark: #0f172a;
+      --light: #f8fafc;
+      --tech-gradient: linear-gradient(135deg, #6366f1 0%, #8b5cf6 50%, #ec4899 100%);
+      --glass-bg: rgba(255, 255, 255, 0.1);
+      --glass-border: rgba(255, 255, 255, 0.2);
+    }
+    
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: var(--light);
+      color: var(--dark);
+      transition: all 0.3s ease;
+    }
+    
+    h1, h2, h3, h4, h5, h6 {
+      font-family: 'Space Grotesk', sans-serif;
+    }
+    
+    .tech-gradient-text {
+      background: var(--tech-gradient);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+    
+    .tech-glass {
+      background: var(--glass-bg);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      border: 1px solid var(--glass-border);
+      box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.18);
+    }
+    
+    .tech-card {
+      background: white;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      border: 1px solid rgba(0, 0, 0, 0.05);
+    }
+    
+    .tech-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+    }
+    
+    .tech-badge {
+      display: inline-block;
+      padding: 0.25rem 0.75rem;
+      border-radius: 9999px;
+      font-size: 0.75rem;
+      font-weight: 600;
+      background: var(--tech-gradient);
+      color: white;
+    }
+    
+    .scroll-progress-bar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      height: 4px;
+      background: var(--tech-gradient);
+      width: 0;
+      z-index: 1000;
+    }
+    
+    .dark-mode {
+      background-color: #0f172a;
+      color: #f8fafc;
+    }
+    
+    .dark-mode .tech-card {
+      background: #1e293b;
+      border-color: #334155;
+    }
+    
+    .dark-mode .tech-glass {
+      background: rgba(15, 23, 42, 0.7);
+      border-color: rgba(255, 255, 255, 0.1);
+    }
+    
+    .grid-pattern {
+      background-image: 
+        linear-gradient(rgba(99, 102, 241, 0.1) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(99, 102, 241, 0.1) 1px, transparent 1px);
+      background-size: 40px 40px;
+    }
+    
+    .tech-button {
+      background: var(--tech-gradient);
+      color: white;
+      font-weight: 600;
+      padding: 0.75rem 1.5rem;
+      border-radius: 8px;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+    }
+    
+    .tech-button:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+    }
+    
+    .tech-button-outline {
+      border: 2px solid var(--primary);
+      color: var(--primary);
+      background: transparent;
+    }
+    
+    .tech-button-outline:hover {
+      background: var(--primary);
+      color: white;
+    }
+    
+    .pulse-animation {
+      animation: pulse 2s infinite;
+    }
+    
+    @keyframes pulse {
+      0% {
+        transform: scale(1);
+      }
+      50% {
+        transform: scale(1.05);
+      }
+      100% {
+        transform: scale(1);
+      }
+    }
+    
+    .floating {
+      animation: floating 6s ease-in-out infinite;
+    }
+    
+    @keyframes floating {
+      0% {
+        transform: translateY(0px);
+      }
+      50% {
+        transform: translateY(-15px);
+      }
+      100% {
+        transform: translateY(0px);
+      }
+    }
+    
+    .tech-icon {
+      width: 60px;
+      height: 60px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 16px;
+      background: var(--tech-gradient);
+      color: white;
+      font-size: 24px;
+      margin-bottom: 1rem;
+    }
+    
+    .tech-tab {
+      padding: 0.75rem 1.5rem;
+      border-radius: 8px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+    
+    .tech-tab.active {
+      background: var(--tech-gradient);
+      color: white;
+    }
+    
+    .tech-tab:not(.active):hover {
+      background: rgba(99, 102, 241, 0.1);
+    }
+    
+    .tech-input {
+      padding: 0.75rem 1rem;
+      border-radius: 8px;
+      border: 1px solid #e2e8f0;
+      transition: all 0.3s ease;
+      background: white;
+    }
+    
+    .tech-input:focus {
+      outline: none;
+      border-color: var(--primary);
+      box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.2);
+    }
+    
+    .dark-mode .tech-input {
+      background: #1e293b;
+      border-color: #334155;
+      color: white;
+    }
+    
+    .tech-input::placeholder {
+      color: #94a3b8;
+    }
+
+    /* Added translucent SOLREIGN text */
+    .hero-background-text {
+      position: absolute;
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 20vw;
+      font-weight: 700;
+      color: rgba(99, 102, 241, 0.20);
+      white-space: nowrap;
+      user-select: none;
+      z-index: 0;
+      pointer-events: none;
+    }
+  </style>
+</head>
+<body class="bg-white text-gray-800 transition-colors duration-300">
+  <div id="progressBar" class="scroll-progress-bar"></div>
+
+  <!-- Floating Particles Background -->
+  <div id="particles-js" class="fixed inset-0 -z-10 opacity-20"></div>
+
+  <!-- Header -->
+  <header id="navbar" class="tech-glass fixed top-0 w-full z-50 transition-all duration-500">
+    <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center" data-aos="fade-down">
+      <div class="flex items-center space-x-3">
+        <div class="tech-icon">
+          <i class="fas fa-code"></i>
+        </div>
+        <span class="text-xl font-bold tech-gradient-text">SOLREIGN</span>
+        <span class="text-xl font-light hidden md:block">Software & Technology</span>
+      </div>
+      <nav class="hidden md:flex space-x-6 text-sm font-medium items-center">
+        <a href="#home" class="hover:text-indigo-500 transition">Home</a>
+        <a href="#services" class="hover:text-indigo-500 transition">Services</a>
+        <a href="#portfolio" class="hover:text-indigo-500 transition">Portfolio</a>
+        <a href="#team" class="hover:text-indigo-500 transition">Team</a>
+        <a href="#testimonials" class="hover:text-indigo-500 transition">Testimonials</a>
+        <a href="#contact" class="tech-button px-4 py-2">Contact</a>
+      </nav>
+      <button class="md:hidden text-2xl" onclick="toggleMobileMenu()">
+        <i class="fas fa-bars"></i>
+      </button>
+    </div>
+    
+    <!-- Mobile Menu -->
+    <div id="mobileMenu" class="hidden md:hidden bg-white dark:bg-slate-800 px-6 py-4 shadow-lg">
+      <div class="flex flex-col space-y-4">
+        <a href="#home" class="hover:text-indigo-500 transition">Home</a>
+        <a href="#services" class="hover:text-indigo-500 transition">Services</a>
+        <a href="#portfolio" class="hover:text-indigo-500 transition">Portfolio</a>
+        <a href="#team" class="hover:text-indigo-500 transition">Team</a>
+        <a href="#testimonials" class="hover:text-indigo-500 transition">Testimonials</a>
+        <a href="#contact" class="tech-button px-4 py-2 text-center">Contact</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section id="home" class="min-h-screen pt-32 pb-20 flex items-center justify-center relative overflow-hidden">
+    <div class="absolute inset-0 grid-pattern"></div>
+    <div class="absolute inset-0 bg-gradient-to-b from-indigo-50/50 to-transparent"></div>
+    
+    <!-- Translucent SOLREIGN text -->
+    <div class="hero-background-text">SOLREIGN</div>
+    
+    <div class="max-w-7xl mx-auto px-6 relative z-10">
+      <div class="flex flex-col lg:flex-row items-center gap-12">
+        <div class="lg:w-1/2" data-aos="fade-right">
+          <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight">
+            <span class="tech-gradient-text">Empowering</span> Digital Innovation Through Technology
+          </h1>
+          <p class="text-lg md:text-xl mb-8 text-gray-700 dark:text-gray-500">
+            We transform visionary ideas into cutting-edge digital solutions that drive business growth and technological advancement.
+          </p>
+          <div class="flex flex-wrap gap-4">
+            <a href="#contact" class="tech-button pulse-animation">
+              Get Started <i class="fas fa-arrow-right ml-2"></i>
+            </a>
+           
+            </a>
+          </div>
+          
+          <div class="mt-12 flex flex-wrap gap-6">
+            <div class="flex items-center">
+              <div class="flex -space-x-2">               
+              </div>
+              <div class="ml-3">
+                
+                <div class="flex">
+                
+
+
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>        
+        <div class="lg:w-1/2" data-aos="fade-left">
+          <div class="relative">
+            <div class="absolute -top-10 -left-10 w-32 h-32 bg-purple-500 rounded-full mix-blend-multiply filter blur-xl opacity-20 animate-blob"></div>
+            <div class="absolute -bottom-10 -right-10 w-32 h-32 bg-yellow-500 rounded-full mix-blend-multiply filter blur-xl opacity-20 animate-blob animation-delay-2000"></div>
+            <div class="absolute top-20 -right-10 w-32 h-32 bg-pink-500 rounded-full mix-blend-multiply filter blur-xl opacity-20 animate-blob animation-delay-4000"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- Services Section -->
+  <section id="services" class="py-20">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="text-center mb-16" data-aos="fade-up">
+        <span class="tech-badge mb-4">OUR SERVICES</span>
+        <h2 class="text-3xl md:text-4xl font-bold mb-4">Custom <span class="tech-gradient-text">Technology Solutions</span> For Your Business</h2>
+        <p class="max-w-2xl mx-auto text-gray-700 dark:text-gray-500">We deliver innovative digital solutions tailored to your specific needs and business objectives.</p>
+      </div>
+      
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <!-- Service 1 -->
+        <div class="tech-card" data-aos="fade-up" data-aos-delay="100">
+          <div class="p-6">
+            <div class="tech-icon mx-auto">
+              <i class="fas fa-code"></i>
+            </div>
+            <h3 class="text-xl font-bold mb-3 text-center">Web Development</h3>
+            <p class="text-gray-700 dark:text-gray-500 mb-4 text-center">Custom websites, web applications, and portals built with modern technologies.</p>
+            <ul class="space-y-2">
+              <li class="flex items-center">
+                <i class="fas fa-check-circle text-green-500 mr-2"></i>
+                <span>React, Angular, Vue.js</span>
+              </li>
+              <li class="flex items-center">
+                <i class="fas fa-check-circle text-green-500 mr-2"></i>
+                <span>Node.js, Laravel, Django</span>
+              </li>
+              <li class="flex items-center">
+                <i class="fas fa-check-circle text-green-500 mr-2"></i>
+                <span>Progressive Web Apps</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+        
+        <!-- Service 2 -->
+        <div class="tech-card" data-aos="fade-up" data-aos-delay="200">
+          <div class="p-6">
+            <div class="tech-icon mx-auto">
+              <i class="fas fa-mobile-alt"></i>
+            </div>
+            <h3 class="text-xl font-bold mb-3 text-center">Mobile Development</h3>
+            <p class="text-gray-700 dark:text-gray-500 mb-4 text-center">Native and cross-platform mobile applications for iOS and Android.</p>
+            <ul class="space-y-2">
+              <li class="flex items-center">
+                <i class="fas fa-check-circle text-green-500 mr-2"></i>
+                <span>Swift, Kotlin Native</span>
+              </li>
+              <li class="flex items-center">
+                <i class="fas fa-check-circle text-green-500 mr-2"></i>
+                <span>React Native, Flutter</span>
+              </li>
+              <li class="flex items-center">
+                <i class="fas fa-check-circle text-green-500 mr-2"></i>
+                <span>Mobile UX/UI Design</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+        
+        <!-- Service 3 -->
+        <div class="tech-card" data-aos="fade-up" data-aos-delay="300">
+          <div class="p-6">
+            <div class="tech-icon mx-auto">
+              <i class="fas fa-cloud"></i>
+            </div>
+            <h3 class="text-xl font-bold mb-3 text-center">Cloud & DevOps</h3>
+            <p class="text-gray-700 dark:text-gray-500 mb-4 text-center">Scalable cloud infrastructure and continuous delivery pipelines.</p>
+            <ul class="space-y-2">
+              <li class="flex items-center">
+                <i class="fas fa-check-circle text-green-500 mr-2"></i>
+                <span>AWS, Azure, Google Cloud</span>
+              </li>
+              <li class="flex items-center">
+                <i class="fas fa-check-circle text-green-500 mr-2"></i>
+                <span>Docker & Kubernetes</span>
+              </li>
+              <li class="flex items-center">
+                <i class="fas fa-check-circle text-green-500 mr-2"></i>
+                <span>CI/CD Automation</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      
+      <div class="mt-12 text-center" data-aos="fade-up">
+        <a href="#contact" class="tech-button inline-flex items-center">
+          Discuss Your Project <i class="fas fa-arrow-right ml-2"></i>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Tech Stack Section -->
+  <section class="py-20 bg-gray-50 dark:bg-slate-800">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="text-center mb-16" data-aos="fade-up">
+        <span class="tech-badge mb-4">TECH STACK</span>
+        <h2 class="text-3xl md:text-4xl font-bold mb-4"><span class="tech-gradient-text">Technologies We Excel In</span></h2>
+        <p class="max-w-2xl mx-auto text-gray-600 dark:text-gray-300">We leverage cutting-edge technologies to build robust, scalable solutions.</p>
+      </div>
+      
+      <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-6">
+        <div class="tech-card p-6 flex flex-col items-center" data-aos="zoom-in" data-aos-delay="100">
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" class="w-12 h-12 mb-3" alt="React">
+          <span class="font-medium">React</span>
+        </div>
+        <div class="tech-card p-6 flex flex-col items-center" data-aos="zoom-in" data-aos-delay="150">
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg" class="w-12 h-12 mb-3" alt="Node.js">
+          <span class="font-medium">Node.js</span>
+        </div>
+        <div class="tech-card p-6 flex flex-col items-center" data-aos="zoom-in" data-aos-delay="200">
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" class="w-12 h-12 mb-3" alt="Python">
+          <span class="font-medium">Python</span>
+        </div>
+        <div class="tech-card p-6 flex flex-col items-center" data-aos="zoom-in" data-aos-delay="250">
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg" class="w-12 h-12 mb-3" alt="Docker">
+          <span class="font-medium">Docker</span>
+        </div>
+        <div class="tech-card p-6 flex flex-col items-center" data-aos="zoom-in" data-aos-delay="300">
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/kubernetes/kubernetes-plain.svg" class="w-12 h-12 mb-3" alt="Kubernetes">
+          <span class="font-medium">Kubernetes</span>
+        </div>
+        <div class="tech-card p-6 flex flex-col items-center" data-aos="zoom-in" data-aos-delay="350">
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tensorflow/tensorflow-original.svg" class="w-12 h-12 mb-3" alt="TensorFlow">
+          <span class="font-medium">TensorFlow</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Portfolio Section -->
+  <section id="portfolio" class="py-20">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="text-center mb-16" data-aos="fade-up">
+        <span class="tech-badge mb-4">OUR WORK</span>
+        <h2 class="text-3xl md:text-4xl font-bold mb-4">Featured <span class="tech-gradient-text">Projects</span></h2>
+        <p class="max-w-2xl mx-auto text-gray-700 dark:text-gray-500">Explore our portfolio of innovative digital solutions across various industries.</p>
+      </div>
+      
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <!-- Project 1 - HSMShipping -->
+        <div class="portfolio-item tech-card overflow-hidden" data-category="web" data-aos="fade-up">
+          <div class="relative overflow-hidden group">
+            <img src="https://images.unsplash.com/photo-1502134249126-9f3755a50d78?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="HSM Shipping" class="w-full h-64 object-cover transition duration-500 group-hover:scale-110">
+            <div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent opacity-0 group-hover:opacity-100 transition duration-300 flex items-end p-6">
+              <div>
+                <h3 class="text-white text-xl font-bold mb-2">HSM Shipping</h3>
+                <p class="text-gray-200 mb-4">Comprehensive shipping and logistics management platform.</p>
+                <div class="flex flex-wrap gap-2">
+                  <span class="tech-badge text-xs">React</span>
+                  <span class="tech-badge text-xs">Node.js</span>
+                  <span class="tech-badge text-xs">MongoDB</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="p-6">
+            <h3 class="text-xl font-bold mb-2">HSM Shipping</h3>
+            <p class="text-gray-700 dark:text-gray-500">Shipping and logistics management system.</p>
+            <a href="https://hsmshipping.com" target="_blank" class="text-indigo-600 hover:text-indigo-800 dark:hover:text-indigo-400 mt-2 inline-block">Visit Website →</a>
+          </div>
+        </div>
+        
+        <!-- Project 2 - Artagham -->
+        <div class="portfolio-item tech-card overflow-hidden" data-category="web" data-aos="fade-up" data-aos-delay="100">
+          <div class="relative overflow-hidden group">
+            <img src="https://images.unsplash.com/photo-1547036967-23d11aacaee0?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1472&q=80" alt="Artagham" class="w-full h-64 object-cover transition duration-500 group-hover:scale-110">
+            <div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent opacity-0 group-hover:opacity-100 transition duration-300 flex items-end p-6">
+              <div>
+                <h3 class="text-white text-xl font-bold mb-2">Artagham</h3>
+                <p class="text-gray-200 mb-4">Online platform for art classes and creative learning.</p>
+                <div class="flex flex-wrap gap-2">
+                  <span class="tech-badge text-xs">Vue.js</span>
+                  <span class="tech-badge text-xs">Laravel</span>
+                  <span class="tech-badge text-xs">MySQL</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="p-6">
+            <h3 class="text-xl font-bold mb-2">Artagham</h3>
+            <p class="text-gray-700 dark:text-gray-500">Art class platform with 10k+ registered users.</p>
+            <a href="https://artagham.com" target="_blank" class="text-indigo-600 hover:text-indigo-800 dark:hover:text-indigo-400 mt-2 inline-block">Visit Website →</a>
+          </div>
+        </div>
+        
+        <!-- Project 3 - Airocean -->
+        <div class="portfolio-item tech-card overflow-hidden" data-category="web" data-aos="fade-up" data-aos-delay="200">
+          <div class="relative overflow-hidden group">
+            <img src="https://images.unsplash.com/photo-1436491865332-7a61a109cc05?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1474&q=80" alt="Airocean" class="w-full h-64 object-cover transition duration-500 group-hover:scale-110">
+            <div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent opacity-0 group-hover:opacity-100 transition duration-300 flex items-end p-6">
+              <div>
+                <h3 class="text-white text-xl font-bold mb-2">Airocean</h3>
+                <p class="text-gray-200 mb-4">Aviation services and flight management system.</p>
+                <div class="flex flex-wrap gap-2">
+                  <span class="tech-badge text-xs">Angular</span>
+                  <span class="tech-badge text-xs">.NET Core</span>
+                  <span class="tech-badge text-xs">SQL Server</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="p-6">
+            <h3 class="text-xl font-bold mb-2">Airocean</h3>
+            <p class="text-gray-700 dark:text-gray-500">Aviation services platform with real-time tracking.</p>
+            <a href="https://airocean.biz" target="_blank" class="text-indigo-600 hover:text-indigo-800 dark:hover:text-indigo-400 mt-2 inline-block">Visit Website →</a>
+          </div>
+        </div>
+
+        <!-- Project 4 - Royal Continental -->
+        <div class="portfolio-item tech-card overflow-hidden" data-category="web" data-aos="fade-up" data-aos-delay="300">
+          <div class="relative overflow-hidden group">
+            <img src="https://images.unsplash.com/photo-1544551763-46a013bb70d5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Royal Continental" class="w-full h-64 object-cover transition duration-500 group-hover:scale-110">
+            <div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent opacity-0 group-hover:opacity-100 transition duration-300 flex items-end p-6">
+              <div>
+                <h3 class="text-white text-xl font-bold mb-2">Royal Continental</h3>
+                <p class="text-gray-200 mb-4">Luxury cruise ship booking and management system.</p>
+                <div class="flex flex-wrap gap-2">
+                  <span class="tech-badge text-xs">React</span>
+                  <span class="tech-badge text-xs">Node.js</span>
+                  <span class="tech-badge text-xs">MongoDB</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="p-6">
+            <h3 class="text-xl font-bold mb-2">Royal Continental</h3>
+            <p class="text-gray-700 dark:text-gray-500">Cruise ship booking platform with 500+ voyages.</p>
+            <a href="https://royalcontinental.com" target="_blank" class="text-indigo-600 hover:text-indigo-800 dark:hover:text-indigo-400 mt-2 inline-block">Visit Website →</a>
+          </div>
+        </div>
+      </div>
+      
+    </div>
+  </section>
+
+  <!-- Process Section -->
+  <section class="py-20 bg-gray-50 dark:bg-slate-800">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="text-center mb-16" data-aos="fade-up">
+        <span class="tech-badge mb-4">OUR PROCESS</span>
+        <h2 class="text-3xl md:text-4xl font-bold mb-4"><span class="tech-gradient-text">How We Work</span></h2>
+        <p class="max-w-2xl mx-auto text-gray-600 dark:text-gray-300">A proven methodology for delivering successful digital products.</p>
+      </div>
+      
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+        <div class="text-center" data-aos="fade-up" data-aos-delay="100">
+          <div class="tech-icon mx-auto mb-4">
+            <span class="text-2xl font-bold">1</span>
+          </div>
+          <h3 class="text-xl font-bold mb-2">Discovery</h3>
+          <p class="text-gray-600 dark:text-gray-300">We analyze your requirements and define project scope.</p>
+        </div>
+        
+        <div class="text-center" data-aos="fade-up" data-aos-delay="200">
+          <div class="tech-icon mx-auto mb-4">
+            <span class="text-2xl font-bold">2</span>
+          </div>
+          <h3 class="text-xl font-bold mb-2">Design</h3>
+          <p class="text-gray-600 dark:text-gray-300">We create wireframes, prototypes, and UI/UX designs.</p>
+        </div>
+        
+        <div class="text-center" data-aos="fade-up" data-aos-delay="300">
+          <div class="tech-icon mx-auto mb-4">
+            <span class="text-2xl font-bold">3</span>
+          </div>
+          <h3 class="text-xl font-bold mb-2">Development</h3>
+          <p class="text-gray-600 dark:text-gray-300">We build your solution with clean, maintainable code.</p>
+        </div>
+        
+        <div class="text-center" data-aos="fade-up" data-aos-delay="400">
+          <div class="tech-icon mx-auto mb-4">
+            <span class="text-2xl font-bold">4</span>
+          </div>
+          <h3 class="text-xl font-bold mb-2">Delivery</h3>
+          <p class="text-gray-600 dark:text-gray-300">We deploy, monitor, and provide ongoing support.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Team Section -->
+  <section id="team" class="py-20">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="text-center mb-16" data-aos="fade-up">
+        <span class="tech-badge mb-4">OUR TEAM</span>
+        <h2 class="text-3xl md:text-4xl font-bold mb-4">Meet The <span class="tech-gradient-text">Experts</span></h2>
+        <p class="max-w-2xl mx-auto text-gray-700 dark:text-gray-500">A talented team of developers, designers, and technology enthusiasts.</p>
+      </div>
+      
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <a>
+        </a>
+        <!-- Team Member 1 -->
+        <div class="tech-card text-center p-8" data-aos="zoom-in">
+          <div class="w-32 h-32 mx-auto mb-6 rounded-full overflow-hidden border-4 border-indigo-100">
+            <img src="kripashankar.jpg" alt="Kripashankar Sattanathan" class="w-full h-full object-cover">
+          </div>
+          <h3 class="text-xl font-bold mb-1">Kripashankar S</h3>
+          <p class="text-indigo-600 mb-4">Co-Founder & CTO</p>
+          <p class="text-gray-700 dark:text-gray-500 mb-4"> Driving innovation and technical strategy to build scalable, cutting-edge software solutions.</p>
+          <div class="flex justify-center space-x-3">
+            <a href="#" class="text-gray-500 hover:text-indigo-600"><i class="fab fa-linkedin-in"></i></a>
+            <a href="#" class="text-gray-500 hover:text-indigo-600"><i class="fab fa-twitter"></i></a>
+            <a href="#" class="text-gray-500 hover:text-indigo-600"><i class="fab fa-github"></i></a>
+          </div>
+        </div>
+        <!-- Team Member 2 -->
+        <div class="tech-card text-center p-8" data-aos="zoom-in" data-aos-delay="100">
+          <div class="w-32 h-32 mx-auto mb-6 rounded-full overflow-hidden border-4 border-indigo-100">
+            <img src="arunachalam.jpg" alt="Arunachalam G" class="w-full h-full object-cover">
+          </div>
+          <h3 class="text-xl font-bold mb-1">Arunachalam G</h3>
+          <p class="text-indigo-600 mb-4">Co-Founder & COO</p>
+          <p class="text-gray-700 dark:text-gray-500 mb-4">Leads operations, strategy, and business development to drive sustainable growth and operational excellence.</p>
+          <div class="flex justify-center space-x-3">
+            <a href="#" class="text-gray-500 hover:text-indigo-600"><i class="fab fa-linkedin-in"></i></a>
+            <a href="#" class="text-gray-500 hover:text-indigo-600"><i class="fab fa-twitter"></i></a>
+          </div>
+        </div>
+    </div>
+  </section>
+
+  <!-- Stats Section -->
+  <section class="py-20 bg-gradient-to-r from-indigo-600 to-purple-600 text-white">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-8 text-center">
+        <div data-aos="fade-up" data-aos-delay="100">
+          <div class="text-4xl md:text-5xl font-bold mb-2" id="counter1">4</div>
+          <p class="text-lg">Projects Delivered</p>
+        </div>
+        <div data-aos="fade-up" data-aos-delay="200">
+          <div class="text-4xl md:text-5xl font-bold mb-2" id="counter2">4</div>
+          <p class="text-lg">Happy Clients</p>
+        </div>
+        <div data-aos="fade-up" data-aos-delay="300">
+          <div class="text-4xl md:text-5xl font-bold mb-2" id="counter3">1</div>
+          <p class="text-lg">Years of Experience</p>
+        </div>
+        <div data-aos="fade-up" data-aos-delay="400">
+          <div class="text-4xl md:text-5xl font-bold mb-2" id="counter4">1</div>
+          <p class="text-lg">Countries Served</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonials Section -->
+  <section id="testimonials" class="py-20 bg-gray-50 dark:bg-slate-800">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="text-center mb-16" data-aos="fade-up">
+        <span class="tech-badge mb-4">TESTIMONIALS</span>
+        <h2 class="text-3xl md:text-4xl font-bold mb-4"><span class="tech-gradient-text">What Our Clients Say</span></h2>
+        <p class="max-w-2xl mx-auto text-gray-600 dark:text-gray-300">Don't just take our word for it - hear from our satisfied clients.</p>
+      </div>
+      
+      <div class="splide" data-aos="fade-up">
+        <div class="splide__track">
+          <ul class="splide__list">
+            <li class="splide__slide">
+              <div class="tech-card p-8 mx-4">
+                <div class="flex items-center mb-6">
+                  <div class="w-16 h-16 rounded-full overflow-hidden mr-4">
+                    <img src="https://randomuser.me/api/portraits/men/46.jpg" alt="Venket Prabhu" class="w-full h-full object-cover">
+                  </div>
+                  <div>
+                    <h4 class="font-bold">Venket Prabhu</h4>
+                    <p class="text-indigo-600">CEO of VTM Enterprises</p>
+                  </div>
+                </div>
+                <p class="text-gray-600 dark:text-gray-300 italic mb-6">"Outstanding service and technical expertise. Solreign helped us scale our e-commerce platform effortlessly, resulting in a 300% increase in conversions. Their team was professional, responsive, and delivered beyond our expectations."</p>
+                <div class="flex">
+                  <i class="fas fa-star text-yellow-400"></i>
+                  <i class="fas fa-star text-yellow-400"></i>
+                  <i class="fas fa-star text-yellow-400"></i>
+                  <i class="fas fa-star text-yellow-400"></i>
+                  <i class="fas fa-star text-yellow-400"></i>
+                </div>
+              </div>
+            </li>
+            <li class="splide__slide">
+              <div class="tech-card p-8 mx-4">
+                <div class="flex items-center mb-6">
+                  <div class="w-16 h-16 rounded-full overflow-hidden mr-4">
+                    <img src="https://randomuser.me/api/portraits/women/63.jpg" alt="Anika P." class="w-full h-full object-cover">
+                  </div>
+                  <div>
+                    <h4 class="font-bold">Anika P.</h4>
+                    <p class="text-indigo-600">CTO of HealthTech</p>
+                  </div>
+                </div>
+                <p class="text-gray-600 dark:text-gray-300 italic mb-6">"Reliable and responsive team. They delivered our health tracking mobile app on time and exceeded expectations. The app now has over 500k downloads and maintains a 4.9-star rating on both app stores."</p>
+                <div class="flex">
+                  <i class="fas fa-star text-yellow-400"></i>
+                  <i class="fas fa-star text-yellow-400"></i>
+                  <i class="fas fa-star text-yellow-400"></i>
+                  <i class="fas fa-star text-yellow-400"></i>
+                  <i class="fas fa-star text-yellow-400"></i>
+                </div>
+              </div>
+            </li>
+            <li class="splide__slide">
+              <div class="tech-card p-8 mx-4">
+                <div class="flex items-center mb-6">
+                  <div class="w-16 h-16 rounded-full overflow-hidden mr-4">
+                    <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Lokesh" class="w-full h-full object-cover">
+                  </div>
+                  <div>
+                    <h4 class="font-bold">Lokesh</h4>
+                    <p class="text-indigo-600">Director of AI Solutions</p>
+                  </div>
+                </div>
+                <p class="text-gray-600 dark:text-gray-300 italic mb-6">"Their AI solutions revolutionized our customer support system. The chatbot they developed handles 10k+ queries daily with 95% accuracy, reducing our support tickets by 70%. Highly recommended for any AI/ML projects!"</p>
+                <div class="flex">
+                  <i class="fas fa-star text-yellow-400"></i>
+                  <i class="fas fa-star text-yellow-400"></i>
+                  <i class="fas fa-star text-yellow-400"></i>
+                  <i class="fas fa-star text-yellow-400"></i>
+                  <i class="fas fa-star text-yellow-400"></i>
+                </div>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ Section -->
+  <section class="py-20">
+    <div class="max-w-4xl mx-auto px-6">
+      <div class="text-center mb-16" data-aos="fade-up">
+        <span class="tech-badge mb-4">FAQ</span>
+        <h2 class="text-3xl md:text-4xl font-bold mb-4">Frequently Asked <span class="tech-gradient-text">Questions</span></h2>
+        <p class="max-w-2xl mx-auto text-gray-600 dark:text-gray-300">Find answers to common questions about our services.</p>
+      </div>
+      
+      <div class="space-y-4">
+        <div class="tech-card p-6" data-aos="fade-up">
+          <div class="flex justify-between items-center cursor-pointer" onclick="toggleFAQ(this)">
+            <h3 class="font-semibold text-lg">What industries do you specialize in?</h3>
+            <i class="fas fa-chevron-down transition-transform duration-300"></i>
+          </div>
+          <div class="faq-content mt-4 hidden">
+            <p class="text-gray-600 dark:text-gray-300">We have extensive experience across multiple industries including eCommerce, FinTech, Healthcare, Education, and SaaS. Our team adapts to your specific industry requirements to deliver tailored solutions that address your unique challenges.</p>
+          </div>
+        </div>
+        
+        <div class="tech-card p-6" data-aos="fade-up" data-aos-delay="100">
+          <div class="flex justify-between items-center cursor-pointer" onclick="toggleFAQ(this)">
+            <h3 class="font-semibold text-lg">How long does a typical project take?</h3>
+            <i class="fas fa-chevron-down transition-transform duration-300"></i>
+          </div>
+          <div class="faq-content mt-4 hidden">
+            <p class="text-gray-600 dark:text-gray-300">Project timelines vary based on complexity. Most web applications take 4-8 weeks, while mobile apps typically require 8-12 weeks. Complex enterprise solutions or AI projects may take 3-6 months. We provide detailed timelines after our initial discovery phase.</p>
+          </div>
+        </div>
+        
+        <div class="tech-card p-6" data-aos="fade-up" data-aos-delay="200">
+          <div class="flex justify-between items-center cursor-pointer" onclick="toggleFAQ(this)">
+            <h3 class="font-semibold text-lg">Do you provide ongoing support?</h3>
+            <i class="fas fa-chevron-down transition-transform duration-300"></i>
+          </div>
+          <div class="faq-content mt-4 hidden">
+            <p class="text-gray-600 dark:text-gray-300">Yes, we offer flexible support and maintenance packages. Options include bug fixes, feature enhancements, performance optimization, and 24/7 monitoring. Many clients choose our retainer model for continuous improvement of their digital products.</p>
+          </div>
+        </div>
+        
+        <div class="tech-card p-6" data-aos="fade-up" data-aos-delay="300">
+          <div class="flex justify-between items-center cursor-pointer" onclick="toggleFAQ(this)">
+            <h3 class="font-semibold text-lg">What's your development methodology?</h3>
+            <i class="fas fa-chevron-down transition-transform duration-300"></i>
+          </div>
+          <div class="faq-content mt-4 hidden">
+            <p class="text-gray-600 dark:text-gray-300">We follow Agile methodologies with 2-week sprints, daily standups, and regular demos. This ensures transparency, adaptability, and continuous delivery of value. Clients have access to project management tools to track progress in real-time.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="py-20 bg-gradient-to-r from-indigo-600 to-purple-600 text-white">
+    <div class="max-w-4xl mx-auto px-6 text-center" data-aos="fade-up">
+      <h2 class="text-3xl md:text-4xl font-bold mb-6">Ready to Build Something <span class="tech-gradient-text">Amazing?</span></h2>
+      <p class="text-xl mb-8 max-w-2xl mx-auto">Let's discuss how we can help bring your idea to life with cutting-edge technology.</p>
+      <a href="#contact" class="tech-button bg-white text-indigo-600 hover:bg-gray-100 inline-flex items-center">
+        Start Your Project <i class="fas fa-arrow-right ml-2"></i>
+      </a>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contact" class="py-20">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+        <div data-aos="fade-right">
+          <h2 class="text-3xl md:text-4xl font-bold mb-6"><span class="tech-gradient-text">Get In Touch</span> With Us</h2>
+          <p class="text-gray-700 dark:text-gray-500 mb-8">Have a project in mind or questions about our services? Fill out the form and our team will get back to you within 24 hours.</p>
+          
+          <div class="space-y-6">
+            <div class="flex items-start">
+              <div class="tech-icon mr-4 flex-shrink-0">
+                <i class="fas fa-map-marker-alt"></i>
+              </div>
+              <div>
+                <h4 class="font-bold mb-1">Our Office</h4>
+                <p class="text-gray-700 dark:text-gray-500">No2,7th Main Rd ,4th Extn ,NewColony ,Chromepet Chennai 600044</p>
+              </div>
+            </div>
+            
+            <div class="flex items-start">
+              <div class="tech-icon mr-4 flex-shrink-0">
+                <i class="fas fa-envelope"></i>
+              </div>
+              <div>
+                <h4 class="font-bold mb-1">Email Us</h4>
+                <p class="text-gray-700 dark:text-gray-500">solreignsoftech@gmail.com</p>
+              </div>
+            </div>
+            
+            <div class="flex items-start">
+              <div class="tech-icon mr-4 flex-shrink-0">
+                <i class="fas fa-phone-alt"></i>
+              </div>
+              <div>
+                <h4 class="font-bold mb-1">Call Us</h4>
+                <p class="text-gray-700 dark:text-gray-500">+91 94980 94580</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <div data-aos="fade-left">
+          <div class="tech-card p-8">
+            <form class="space-y-6">
+              <div>
+                <label for="name" class="block mb-2 font-medium">Your Name</label>
+                <input type="text" id="name" class="tech-input w-full" placeholder="John Doe">
+              </div>
+              
+              <div>
+                <label for="email" class="block mb-2 font-medium">Email Address</label>
+                <input type="email" id="email" class="tech-input w-full" placeholder="john@example.com">
+              </div>
+              
+              <div>
+                <label for="subject" class="block mb-2 font-medium">Subject</label>
+                <input type="text" id="subject" class="tech-input w-full" placeholder="Project Inquiry">
+              </div>
+              
+              <div>
+                <label for="message" class="block mb-2 font-medium">Message</label>
+                <textarea id="message" rows="4" class="tech-input w-full" placeholder="Tell us about your project..."></textarea>
+              </div>
+              
+              <button type="submit" class="tech-button w-full">
+                Send Message <i class="fas fa-paper-plane ml-2"></i>
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="bg-gray-900 text-white py-12">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
+        <div>
+          <div class="flex items-center space-x-3 mb-4">
+            <div class="tech-icon">
+              <i class="fas fa-code"></i>
+            </div>
+            <span class="text-xl font-bold">Solreign</span>
+          </div>
+          <p class="text-gray-400">Transforming ideas into cutting-edge digital solutions through innovative technology.</p>
+        </div>
+        
+        <div>
+          <h4 class="text-lg font-bold mb-4">Quick Links</h4>
+          <ul class="space-y-2">
+            <li><a href="#home" class="text-gray-400 hover:text-white transition">Home</a></li>
+            <li><a href="#services" class="text-gray-400 hover:text-white transition">Services</a></li>
+            <li><a href="#portfolio" class="text-gray-400 hover:text-white transition">Portfolio</a></li>
+            <li><a href="#team" class="text-gray-400 hover:text-white transition">Team</a></li>
+            <li><a href="#contact" class="text-gray-400 hover:text-white transition">Contact</a></li>
+          </ul>
+        </div>
+        
+        <div>
+          <h4 class="text-lg font-bold mb-4">Services</h4>
+          <ul class="space-y-2">
+            <li><a href="#" class="text-gray-400 hover:text-white transition">Web Development</a></li>
+            <li><a href="#" class="text-gray-400 hover:text-white transition">Mobile Apps</a></li>
+            <li><a href="#" class="text-gray-400 hover:text-white transition">Cloud & DevOps</a></li>
+            <li><a href="#" class="text-gray-400 hover:text-white transition">AI Solutions</a></li>
+            <li><a href="#" class="text-gray-400 hover:text-white transition">UI/UX Design</a></li>
+          </ul>
+        </div>
+        
+        <div>
+          <h4 class="text-lg font-bold mb-4">Connect</h4>
+          <div class="flex space-x-4 mb-4">
+            <a href="#" class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center hover:bg-indigo-600 transition">
+              <i class="fab fa-linkedin-in"></i>
+            </a>
+            <a href="#" class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center hover:bg-blue-400 transition">
+              <i class="fab fa-twitter"></i>
+            </a>
+            <a href="#" class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center hover:bg-gray-700 transition">
+              <i class="fab fa-github"></i>
+            </a>
+            <a href="#" class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center hover:bg-pink-600 transition">
+              <i class="fab fa-dribbble"></i>
+            </a>
+          </div>
+          <p class="text-gray-400">Subscribe to our newsletter</p>
+          <div class="flex mt-2">
+            <input type="email" placeholder="Your email" class="tech-input rounded-r-none border-r-0">
+            <button class="tech-button rounded-l-none px-4">
+              <i class="fas fa-paper-plane"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+      
+      <div class="pt-8 border-t border-gray-800 text-center text-gray-400">
+        <p>&copy; 2025 Solreign Software & Technology. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+  <script>
+    // Initialize AOS animations
+    AOS.init({
+      duration: 800,
+      once: true,
+      easing: 'ease-out-quad'
+    });
+
+    // Initialize Splide testimonials carousel
+    new Splide('.splide', {
+      type: 'loop',
+      perPage: 1,
+      autoplay: true,
+      interval: 5000,
+      pauseOnHover: true,
+      breakpoints: {
+        768: {
+          perPage: 1
+        }
+      }
+    }).mount();
+
+    // Initialize VanillaTilt for cards
+    VanillaTilt.init(document.querySelectorAll("[data-tilt]"), {
+      max: 8,
+      speed: 400,
+      glare: true,
+      "max-glare": 0.2,
+      scale: 1.02
+    });
+
+    // Typed.js for hero text
+    new Typed('#typed', {
+      strings: ["Empowering Digital Innovation", "We Build Smart Solutions", "Driven by Passion, Built with Tech"],
+      typeSpeed: 50,
+      backSpeed: 30,
+      loop: true,
+      showCursor: false
+    });
+
+    // Scroll progress bar
+    window.onscroll = () => {
+      const scrollTop = window.scrollY;
+      const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+      const scrollPercent = (scrollTop / docHeight) * 100;
+      document.getElementById('progressBar').style.width = scrollPercent + '%';
+
+      const navbar = document.getElementById('navbar');
+      if (scrollTop > 50) {
+        navbar.classList.add('shadow-xl', 'backdrop-blur-md');
+      } else {
+        navbar.classList.remove('shadow-xl', 'backdrop-blur-md');
+      }
+    };
+
+    // Dark mode toggle
+    function toggleDarkMode() {
+      document.body.classList.toggle('dark-mode');
+      const icon = document.querySelector('[onclick="toggleDarkMode()"] i');
+      if (document.body.classList.contains('dark-mode')) {
+        icon.classList.replace('fa-moon', 'fa-sun');
+      } else {
+        icon.classList.replace('fa-sun', 'fa-moon');
+      }
+    }
+
+    // Mobile menu toggle
+    function toggleMobileMenu() {
+      const menu = document.getElementById('mobileMenu');
+      menu.classList.toggle('hidden');
+    }
+
+    // FAQ toggle
+    function toggleFAQ(element) {
+      const content = element.nextElementSibling;
+      const icon = element.querySelector('i');
+      
+      content.classList.toggle('hidden');
+      icon.classList.toggle('rotate-180');
+    }
+
+    // Portfolio filtering
+    const filterButtons = document.querySelectorAll('[data-filter]');
+    const portfolioItems = document.querySelectorAll('.portfolio-item');
+    
+    filterButtons.forEach(button => {
+      button.addEventListener('click', () => {
+        // Update active state
+        filterButtons.forEach(btn => btn.classList.remove('active'));
+        button.classList.add('active');
+        
+        const filter = button.dataset.filter;
+        
+        // Filter items
+        portfolioItems.forEach(item => {
+          if (filter === 'all' || item.dataset.category === filter) {
+            item.style.display = 'block';
+          } else {
+            item.style.display = 'none';
+          }
+        });
+      });
+    });
+
+    // Animated counters
+    const animateCounter = (id, end, suffix = '') => {
+      let start = 0;
+      const duration = 2000;
+      const increment = end / (duration / 16);
+      const counter = document.getElementById(id);
+      const step = () => {
+        start += increment;
+        if (start < end) {
+          counter.textContent = Math.floor(start) + suffix;
+          requestAnimationFrame(step);
+        } else {
+          counter.textContent = end + suffix;
+        }
+      };
+      requestAnimationFrame(step);
+    };
+
+    // Initialize counters when in view
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          animateCounter('counter1', 100, '+');
+          animateCounter('counter2', 50, '+');
+          animateCounter('counter3', 5);
+          animateCounter('counter4', 12);
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.5 });
+
+    observer.observe(document.querySelector('#counter1').parentElement.parentElement);
+
+    // Particles.js background
+    particlesJS('particles-js', {
+      "particles": {
+        "number": {
+          "value": 80,
+          "density": {
+            "enable": true,
+            "value_area": 800
+          }
+        },
+        "color": {
+          "value": "#6366f1"
+        },
+        "shape": {
+          "type": "circle",
+          "stroke": {
+            "width": 0,
+            "color": "#000000"
+          },
+          "polygon": {
+            "nb_sides": 5
+          }
+        },
+        "opacity": {
+          "value": 0.3,
+          "random": false,
+          "anim": {
+            "enable": false,
+            "speed": 1,
+            "opacity_min": 0.1,
+            "sync": false
+          }
+        },
+        "size": {
+          "value": 3,
+          "random": true,
+          "anim": {
+            "enable": false,
+            "speed": 40,
+            "size_min": 0.1,
+            "sync": false
+          }
+        },
+        "line_linked": {
+          "enable": true,
+          "distance": 150,
+          "color": "#6366f1",
+          "opacity": 0.2,
+          "width": 1
+        },
+        "move": {
+          "enable": true,
+          "speed": 2,
+          "direction": "none",
+          "random": false,
+          "straight": false,
+          "out_mode": "out",
+          "bounce": false,
+          "attract": {
+            "enable": false,
+            "rotateX": 600,
+            "rotateY": 1200
+          }
+        }
+      },
+      "interactivity": {
+        "detect_on": "canvas",
+        "events": {
+          "onhover": {
+            "enable": true,
+            "mode": "grab"
+          },
+          "onclick": {
+            "enable": true,
+            "mode": "push"
+          },
+          "resize": true
+        },
+        "modes": {
+          "grab": {
+            "distance": 140,
+            "line_linked": {
+              "opacity": 1
+            }
+          },
+          "bubble": {
+            "distance": 400,
+            "size": 40,
+            "duration": 2,
+            "opacity": 8,
+            "speed": 3
+          },
+          "repulse": {
+            "distance": 200,
+            "duration": 0.4
+          },
+          "push": {
+            "particles_nb": 4
+          },
+          "remove": {
+            "particles_nb": 2
+          }
+        }
+      },
+      "retina_detect": true
+    });
+  </script>
+</body>
+</html>
